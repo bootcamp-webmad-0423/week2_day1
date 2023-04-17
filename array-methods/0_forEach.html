@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        const students = [
+            {
+                name: 'Tony Parker',
+                firstProject: 80,
+                secondProject: 75,
+                finalExam: 90
+            },
+            {
+                name: 'Marc Barchini',
+                firstProject: 84,
+                secondProject: 65,
+                finalExam: 65
+            },
+            {
+                name: 'Claudia Lopez',
+                firstProject: 45,
+                secondProject: 95,
+                finalExam: 99
+            }
+        ]
+
+
+        // for loop
+        let sumGrades = 0
+
+        for (let i = 0; i < students.length; i++) {
+            sumGrades += students[i].finalExam
+        }
+
+        console.log('La media de notas es', sumGrades / students.length)
+
+
+
+        // forEach method (statement fn)
+        let sumGrades2 = 0
+
+        students.forEach(function (eachStudent) {
+            sumGrades2 += eachStudent.finalExam
+        })
+
+        console.log('La media de notas es', sumGrades2 / students.length)
+
+
+
+
+        // forEach method (arrow fn)
+        let sumGrades3 = 0
+
+        students.forEach(eachStudent => sumGrades3 += eachStudent.finalExam)
+
+        console.log('La media de notas es', sumGrades3 / students.length)
+
+    </script>
+</body>
+
+</html>

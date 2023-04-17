@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        // .map() does not mutate the original array
+        // .map() receives a callback as an argument
+        // .map() returns a new array with the same length than the original one
+
+        // the argumented callback has a default parameter: each array position
+        // Each position from the new array will have the returned value on each iteration
+
+
+
+        // Example 1
+        const originalNumbers = [1, 2, 3, 4]
+
+        const doubledNumbers = originalNumbers.map((eachNumber) => {
+            console.log('ESTAMOS ITERANDO SOBRE', eachNumber)
+            return eachNumber * 2
+        })
+
+        console.log('RESULTADO ->', doubledNumbers)
+
+
+
+
+
+
+
+
+        console.log('-------')
+
+
+
+
+
+        // Example 2
+        const originalDrinks = ['agua', 'kas', 'cervemocho']
+
+        const capitalizedDrinks = originalDrinks.map((eachDrink) => {
+            const firstLetter = eachDrink[0].toUpperCase()
+            const rest = eachDrink.substring(1)
+            const fullName = firstLetter + rest
+            return fullName
+        })
+
+        console.log('RESULTADO ->', capitalizedDrinks)
+
+
+
+
+
+        console.log('-------')
+
+
+
+
+
+        // Example 3
+        const students = [
+            {
+                name: 'Tony Parker',
+                firstProject: 80,
+                secondProject: 75,
+                finalExam: 90
+            },
+            {
+                name: 'Marc Barchini',
+                firstProject: 84,
+                secondProject: 65,
+                finalExam: 65
+            },
+            {
+                name: 'Claudia Lopez',
+                firstProject: 45,
+                secondProject: 95,
+                finalExam: 99
+            },
+            {
+                name: 'Alvaro Briattore',
+                firstProject: 82,
+                secondProject: 92,
+                finalExam: 70
+            }
+        ]
+
+
+        // // Try 1: FAIL -> we also need student's names
+        // const finalGrades = students.map((eachStudent) => {
+        //     const projectAvg = (eachStudent.firstProject + eachStudent.secondProject) / 2
+        //     const projectsPart = projectAvg * .4
+        //     const examPart = eachStudent.finalExam * .6
+        //     const finalGrade = projectsPart + examPart
+        //     return finalGrade
+        // })
+
+
+
+
+        // // Try 2: FAIL -> all student info needed
+        // const finalGrades = students.map((eachStudent) => {
+        //     const projectAvg = (eachStudent.firstProject + eachStudent.secondProject) / 2
+        //     const projectsPart = projectAvg * .4
+        //     const examPart = eachStudent.finalExam * .6
+        //     const finalGrade = projectsPart + examPart
+
+        //     const studentResult = {
+        //         name: eachStudent.name,
+        //         finalGrade: finalGrade
+        //     }
+
+        //     return studentResult
+        // })
+
+
+
+
+        // Try 3: SUCESS YAY
+        const finalGrades = students.map((eachStudent) => {
+            const projectAvg = (eachStudent.firstProject + eachStudent.secondProject) / 2
+            const projectsPart = projectAvg * .4
+            const examPart = eachStudent.finalExam * .6
+            const finalGrade = projectsPart + examPart
+
+            const studentResult = {
+                ...eachStudent,             // operador de propagación - spread operator
+                finalGrade: finalGrade
+            }
+
+            return studentResult
+        })
+
+        console.log('NOTAS FINALES ->', finalGrades)
+
+
+    </script>
+</body>
+
+</html>
